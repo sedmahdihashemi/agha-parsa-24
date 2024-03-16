@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .acc{
+            width: 50%;
+            padding: 10px;
+            border: 2px solid blue;
+            margin: 100px auto;
+            >li{
+                list-style: none;
+                margin-bottom: 10px;
+                >*{
+                    width: 100%;
+                }
+                >h2{
+                    background-color: blueviolet;
+                    color: yellow;
+                    font-size: 30px;
+                    display: flex;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    
+                }
+                >p{
+                    font-size: 20px;
+                    line-height: 35px;
+                    display: none;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul class="acc">
+        <li>
+            <h2 data-txt="off">Lorem, ipsum dolor. 1  <span>👇</span></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptates sit quae facilis nulla repudiandae iste dicta vel eum! Fugiat omnis vitae dolor consequatur rem explicabo ipsam, odit culpa quam. Lorem ipsum dolor sit amet consectetur.</p>
+        </li>
+        <li>
+            <h2 data-txt="off">Lorem, ipsum dolor. 2 <span>👇</span></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptates sit quae facilis nulla repudiandae iste dicta vel eum! Fugiat omnis vitae dolor consequatur rem explicabo ipsam, odit culpa quam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit reiciendis quidem nihil sequi vel iure iusto blanditiis, recusandae non, placeat, consequuntur sunt neque. Vel voluptatibus omnis molestias quisquam id consequatur!</p>
+        </li>
+        <li>
+            <h2 data-txt="off">Lorem, ipsum dolor. 3 <span>👇</span></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptates sit quae facilis nulla repudiandae iste dicta vel eum! Fugiat omnis vitae dolor consequatur rem explicabo ipsam, odit culpa quam.</p>
+        </li>
+
+    </ul>
+
+
+    <script>
+        let _h2 = document.querySelectorAll('.acc h2')
+        _h2.forEach(function(val , index){
+            val.addEventListener("click" , function(){
+
+            for(let i = 0 ; i <= _h2.length ; i++){
+                if(i != index){
+                    _h2[i].nextElementSibling.style.display = "none";
+                    _h2[i].setAttribute('data-txt' , 'off')
+
+                }else{
+                    if((val.getAttribute('data-txt')) == 'off'){
+                    val.nextElementSibling.style.display = 'flex'
+                    val.setAttribute('data-txt', 'on')
+
+                }else{
+                    val.nextElementSibling.style.display = 'none'
+                    val.setAttribute('data-txt', 'off')
+                }
+                }
+
+            }    
+             
+        })
+    })
+    
+        
+
+
+    </script>
+</body>
+</html>
